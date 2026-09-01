@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/students",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Steady with Shane",
+      "hasCanvas": false,
+      "bodyTextLen": 530,
+      "bodyTextHash": "fba1f6834f07027d4273770e93a7261f57f7e6784d8730107ccde2aea9cc37aa",
+      "bodyTextPrefix": "Steady with Shane Get the map FREE OPERATOR ROOM Don’t start wit",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/students.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Steady with Shane",
+      "hasCanvas": false,
+      "bodyTextLen": 530,
+      "bodyTextHash": "fba1f6834f07027d4273770e93a7261f57f7e6784d8730107ccde2aea9cc37aa",
+      "bodyTextPrefix": "Steady with Shane Get the map FREE OPERATOR ROOM Don’t start wit",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/students-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/students.json"
+}

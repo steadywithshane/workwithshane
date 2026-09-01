@@ -1,0 +1,359 @@
+<!-- PASTE IN GHL: Funnel page → Settings → Tracking Codes → Header -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --paper: #f3eee4;
+      --paper-2: #e8e0d2;
+      --ink: #1b1712;
+      --ink-soft: #5b5348;
+      --line: rgba(27, 23, 18, 0.12);
+      --clay: #b85a3d;
+      --clay-deep: #8f3f28;
+      --moss: #3d4a38;
+      --white: #fffaf3;
+      --shadow: 0 30px 60px rgba(27, 23, 18, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Outfit, system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 80;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .cursor {
+      position: fixed;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 100;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s, background .2s;
+      mix-blend-mode: multiply;
+    }
+    .cursor.hot {
+      width: 44px;
+      height: 44px;
+      background: rgba(184, 90, 61, 0.15);
+    }
+    @media (pointer: coarse) { .cursor { display: none; } }
+
+    a { color: inherit; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7vw;
+      background: color-mix(in srgb, var(--paper) 82%, transparent);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .logo {
+      font-family: Fraunces, serif;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      font-size: 1.05rem;
+    }
+    .logo span { color: var(--clay); }
+    .nav-cta {
+      background: var(--ink);
+      color: var(--white);
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: center;
+      padding: 72px 7vw 80px;
+      min-height: calc(100vh - 70px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #3f8f5a;
+      box-shadow: 0 0 0 6px rgba(63,143,90,.15);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      50% { box-shadow: 0 0 0 10px rgba(63,143,90,0); }
+    }
+
+    h1 {
+      font-family: Fraunces, serif;
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    .lede {
+      font-size: 1.12rem;
+      color: var(--ink-soft);
+      max-width: 34rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 500;
+      padding: 14px 22px;
+      border-radius: 999px;
+      transition: transform .2s ease, background .2s;
+    }
+    .btn-primary { background: var(--clay); color: #fff; }
+    .btn-primary:hover { background: var(--clay-deep); transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--line);
+    }
+
+    .portrait-wrap {
+      position: relative;
+      justify-self: center;
+    }
+    .portrait {
+      width: min(420px, 86vw);
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 42% 58% 48% 52% / 42% 38% 62% 58%;
+      box-shadow: var(--shadow);
+      animation: morph 12s ease-in-out infinite;
+      background: var(--paper-2);
+    }
+    @keyframes morph {
+      0%, 100% { border-radius: 42% 58% 48% 52% / 42% 38% 62% 58%; }
+      50% { border-radius: 58% 42% 62% 38% / 48% 62% 38% 52%; }
+    }
+    .float-card {
+      position: absolute;
+      right: -18px;
+      bottom: 28px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      border-radius: 16px;
+      width: 190px;
+      box-shadow: var(--shadow);
+      animation: floaty 5s ease-in-out infinite;
+    }
+    @keyframes floaty {
+      50% { transform: translateY(-8px); }
+    }
+    .float-card strong { display: block; font-size: 0.92rem; }
+    .float-card span { font-size: 0.75rem; color: var(--ink-soft); }
+
+    section { padding: 80px 7vw; }
+    .section-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-family: Fraunces, serif;
+      font-weight: 500;
+      font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .picker {
+      background: #1b1712;
+      color: var(--white);
+      border-radius: 32px;
+      padding: 56px 7vw;
+      margin: 0 4vw 20px;
+    }
+    .picker h2 { color: #fff; }
+    .picker p { color: rgba(255,250,243,.7); max-width: 36rem; margin-bottom: 28px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      border: 1px solid rgba(255,250,243,.2);
+      background: transparent;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      transition: background .2s, border .2s, transform .15s;
+    }
+    .chip:hover, .chip.active {
+      background: var(--clay);
+      border-color: var(--clay);
+      transform: translateY(-2px);
+    }
+    .picker-out {
+      min-height: 72px;
+      margin-top: 28px;
+      font-family: Fraunces, serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: .35s ease;
+    }
+    .picker-out.show { opacity: 1; transform: none; }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      transition: transform .25s ease, box-shadow .25s;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .num {
+      font-family: Fraunces, serif;
+      color: var(--clay);
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .card p { color: var(--ink-soft); font-size: 0.95rem; }
+
+    .quotes {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+    }
+    .quote {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+    }
+    .quote.wide { grid-column: 1 / -1; }
+    blockquote {
+      font-family: Fraunces, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .who { font-size: 0.82rem; color: var(--ink-soft); }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-note {
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+    }
+    ul.plain { padding-left: 18px; color: var(--ink-soft); }
+    ul.plain li { margin: 8px 0; }
+
+    .faq details {
+      border-top: 1px solid var(--line);
+      padding: 16px 0;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 500;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq p { color: var(--ink-soft); margin-top: 8px; }
+
+    footer {
+      padding: 40px 7vw 64px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    .book {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(184,90,61,.18), transparent 40%),
+        var(--ink);
+      color: var(--white);
+      border-radius: 32px;
+      padding: 72px 7vw;
+      margin: 0 4vw 40px;
+      text-align: center;
+    }
+    .book h2 { color: #fff; }
+    .book p { color: rgba(255,250,243,.72); margin: 0 auto 24px; max-width: 32rem; }
+
+    @media (max-width: 860px) {
+      .hero, .quotes, .split, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      nav, .hero, section, footer, .picker, .book { padding-left: 22px; padding-right: 22px; }
+      .picker, .book { margin-left: 12px; margin-right: 12px; }
+      .float-card { position: static; margin-top: 16px; width: auto; }
+    }
+  </style>
+<style>
+  /* GHL sometimes adds padding — flatten it */
+  #sws-funnel, #sws-funnel * { box-sizing: border-box; }
+  .hl-site, .section-wrapper, .inner { padding: 0 !important; max-width: none !important; }
+</style>

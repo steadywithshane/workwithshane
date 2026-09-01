@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Steady with Shane",
+      "hasCanvas": false,
+      "bodyTextLen": 2253,
+      "bodyTextHash": "b849aa1e544a8ded2d810ffbda4f87f48e71532eec53d9c0d889ea3d217db148",
+      "bodyTextPrefix": "Steady with Shane For owners What to hand off For operators Book",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Steady with Shane",
+      "hasCanvas": false,
+      "bodyTextLen": 2225,
+      "bodyTextHash": "9639662ea3f91c336ed6039598d87ef34a9d3a13ed30f0ef64d39151bf9b2135",
+      "bodyTextPrefix": "Steady with Shane For operators Book 15 min FOUNDER-LED · PHILIP",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/handoff-card",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Steady with Shane",
+      "hasCanvas": false,
+      "bodyTextLen": 2342,
+      "bodyTextHash": "38df4dee3c19d5cf3ed10f858d2242c9f3b731b83508a6368589d2f861c14287",
+      "bodyTextPrefix": "Steady with Shane Book 15 min CLIENT MAGNET The Handoff Card Thi",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/handoff-card.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Steady with Shane",
+      "hasCanvas": false,
+      "bodyTextLen": 2342,
+      "bodyTextHash": "38df4dee3c19d5cf3ed10f858d2242c9f3b731b83508a6368589d2f861c14287",
+      "bodyTextPrefix": "Steady with Shane Book 15 min CLIENT MAGNET The Handoff Card Thi",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/handoff-card-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/handoff-card.json"
+}

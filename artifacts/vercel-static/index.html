@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Steady with Shane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --paper:#f3eee4; --ink:#1b1712; --muted:#5b5348; --line:#1b17121f; --clay:#b85a3d; --cream:#fffaf3; --good:#3f8f5a; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Outfit,sans-serif; line-height:1.55; }
+    h1,h2,h3 { font-family:Fraunces,Georgia,serif; font-weight:500; letter-spacing:-.03em; line-height:1.1; text-wrap:balance; }
+    a { color:inherit; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--line); }
+    .logo span { color:var(--clay); }
+    .btn { display:inline-block; border-radius:999px; padding:12px 20px; text-decoration:none; font-weight:500; }
+    .btn-clay { background:var(--clay); color:var(--cream); }
+    .btn-ink { background:var(--ink); color:var(--cream); }
+    .btn-line { border:1px solid var(--line); }
+    .hero { max-width:1100px; margin:0 auto; padding:56px 24px; display:grid; gap:40px; align-items:center; }
+    @media (min-width:900px) { .hero { grid-template-columns:1.1fr .9fr; } }
+    .eyebrow { display:flex; gap:8px; align-items:center; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+    .dot { width:8px; height:8px; border-radius:50%; background:var(--good); }
+    h1 { font-size:clamp(2rem,4vw,3.4rem); margin:12px 0; }
+    h1 em { color:var(--clay); font-style:italic; }
+    .lede { color:var(--muted); font-size:1.1rem; max-width:36rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .portrait { width:100%; max-width:420px; aspect-ratio:1; object-fit:cover; border-radius:42% 58% 48% 52% / 42% 38% 62% 58%; box-shadow:0 30px 60px rgba(27,23,18,.12); }
+    .wrap { position:relative; justify-self:center; }
+    .chip-card { position:absolute; right:0; bottom:24px; max-width:200px; background:var(--cream); border:1px solid var(--line); border-radius:14px; padding:14px; }
+    .dark { margin:12px; background:var(--ink); color:var(--cream); border-radius:22px; padding:48px 28px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+    .chip { border:1px solid rgba(255,250,243,.2); background:transparent; color:var(--cream); border-radius:999px; padding:10px 16px; cursor:pointer; font:inherit; }
+    .chip.on { background:var(--clay); border-color:var(--clay); }
+    #out { margin-top:20px; font-family:Fraunces,serif; font-style:italic; font-size:1.25rem; }
+    .grid { max-width:1100px; margin:0 auto; padding:48px 24px; display:grid; gap:16px; }
+    @media (min-width:700px) { .cards { grid-template-columns:1fr 1fr; } .three { grid-template-columns:1fr 1fr 1fr; } }
+    .card { background:var(--cream); border:1px solid var(--line); border-radius:16px; padding:22px; }
+    .num { color:var(--clay); font-family:Fraunces,serif; }
+    footer { border-top:1px solid var(--line); padding:28px 24px; color:var(--muted); font-size:14px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Steady with <span>Shane</span></div>
+    <a class="btn btn-ink" href="https://calendly.com/shanelao/30min" target="_blank" rel="noopener">Book 15 min</a>
+  </nav>
+  <section class="hero">
+    <div>
+      <p class="eyebrow"><span class="dot"></span> Founder-led · Philippines</p>
+      <h1>Your week gets <em>quieter</em> when someone steady takes the admin.</h1>
+      <p class="lede">I help coaches, agents, and service professionals with follow-ups, scheduling, and the work that keeps stealing client time. Short chat first. Small trial if it fits.</p>
+      <div class="actions">
+        <a class="btn btn-clay" href="https://calendly.com/shanelao/30min" target="_blank" rel="noopener">Book a 15-minute chat</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <img class="portrait" src="shane.jpg" alt="Shane Ross Lao" />
+      <div class="chip-card"><strong>Start with a trial</strong><br /><span style="color:var(--muted);font-size:14px">About 10 hours. Test the fit before anything bigger.</span></div>
+    </div>
+  </section>
+  <section class="dark">
+    <p class="eyebrow" style="color:#c98b78">Interactive</p>
+    <h2>What’s eating most of your week?</h2>
+    <p style="color:rgba(255,250,243,.7);max-width:36rem">Tap the one that feels true. Then book a time.</p>
+    <div class="chips">
+      <button class="chip" data-line="Inbox first. I’d triage, draft follow-ups, and keep threads from dying in silence.">The inbox never ends</button>
+      <button class="chip" data-line="Scheduling. I’d own the calendar so you only show up.">Scheduling ping-pong</button>
+      <button class="chip" data-line="Follow-ups. I’d run a simple cadence so warm leads don’t go cold.">Leads go quiet</button>
+      <button class="chip" data-line="Light social and admin. I’d keep the busywork off your desk.">Social + random admin</button>
+      <button class="chip" data-line="New venture setup. I’d take the research and messy start.">I want to start something new</button>
+      <button class="chip" data-line="We’d pick one lane for the trial so you can feel the difference fast.">I’m doing all of it</button>
+    </div>
+    <p id="out"></p>
+    <div class="actions"><a class="btn btn-clay" href="https://calendly.com/shanelao/30min" target="_blank" rel="noopener">Lock a time</a></div>
+  </section>
+  <section class="grid three">
+    <article class="card"><div class="num">01</div><h3>15-minute chat</h3><p>We name the task that’s draining you. If I’m not the right fit, I’ll say so.</p></article>
+    <article class="card"><div class="num">02</div><h3>A 10-hour trial</h3><p>You test quality, communication, and whether work leaves your plate.</p></article>
+    <article class="card"><div class="num">03</div><h3>Continue if it helps</h3><p>Part-time after that. I handle the work myself first.</p></article>
+  </section>
+  <section class="grid cards">
+    <article class="card"><h3>Email & follow-ups</h3><p>Inbox triage, replies, and the messages that should have gone out yesterday.</p></article>
+    <article class="card"><h3>Scheduling</h3><p>Calendar, confirmations, reschedules, and keeping the week from collapsing.</p></article>
+    <article class="card"><h3>General admin</h3><p>Docs, trackers, coordination, and the small tasks that stack up.</p></article>
+    <article class="card"><h3>New venture setup</h3><p>You want to start something and feel stuck. I take the research and messy setup.</p></article>
+  </section>
+  <section class="grid" style="max-width:720px">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>I stay with the business as it changes.</h2>
+      <p class="lede">I started as a VA in 2022 with one founder — still with her. We went from Shopify to Amazon to GoHighLevel and social. Before that I was an EA and assistant project manager. Founder-led, not an agency pitch.</p>
+    </div>
+  </section>
+  <footer>
+    <span>Steady with Shane · Shane Ross Lao</span>
+    <span>Founder-led · Philippines</span>
+  </footer>
+  <script>
+    const out = document.getElementById('out');
+    document.querySelectorAll('.chip').forEach((b) => {
+      b.onclick = () => {
+        document.querySelectorAll('.chip').forEach((x) => x.classList.remove('on'));
+        b.classList.add('on');
+        out.textContent = b.dataset.line;
+      };
+    });
+  </script>
+</body>
+</html>

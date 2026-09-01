@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/email/handoff",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Steady with Shane",
+      "hasCanvas": false,
+      "bodyTextLen": 861,
+      "bodyTextHash": "e4e4f4704c07688432bd4753ab7b185b1c75642a3e8b4e29b50114c71d562b70",
+      "bodyTextPrefix": "Steady with Shane Book 15 min GHL EMAIL PREVIEW The Handoff Card",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/email-handoff.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Steady with Shane",
+      "hasCanvas": false,
+      "bodyTextLen": 861,
+      "bodyTextHash": "e4e4f4704c07688432bd4753ab7b185b1c75642a3e8b4e29b50114c71d562b70",
+      "bodyTextPrefix": "Steady with Shane Book 15 min GHL EMAIL PREVIEW The Handoff Card",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/email-handoff-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/email-handoff.json"
+}

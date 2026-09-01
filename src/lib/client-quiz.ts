@@ -1,0 +1,110 @@
+export type ClientAnswer = {
+  drain: "inbox" | "calendar" | "followup" | "venture" | "unclear";
+  feeling: "relieved" | "wary" | "blank";
+  sop: "written" | "head" | "none";
+};
+
+export type ClientResult = {
+  id: "handoff" | "system" | "funnel" | "venture";
+  title: string;
+  subtitle: string;
+  firstMove: string;
+  brief: string[];
+  trial: string;
+};
+
+export const clientQuestions = [
+  {
+    key: "drain" as const,
+    prompt: "What’s stealing the most hours this week?",
+    options: [
+      { id: "inbox", label: "The inbox and replies" },
+      { id: "calendar", label: "Scheduling and reschedules" },
+      { id: "followup", label: "Leads going quiet after they raise a hand" },
+      { id: "venture", label: "A new offer or setup that isn’t live yet" },
+      { id: "unclear", label: "Everything — I can’t even name it" },
+    ],
+  },
+  {
+    key: "feeling" as const,
+    prompt: "If someone took that for 10 hours, how would you actually feel?",
+    options: [
+      { id: "relieved", label: "Relieved — I know what I’d give them" },
+      { id: "wary", label: "Wary — they’d need a lot of me first" },
+      { id: "blank", label: "Blank — I wouldn’t know where to start" },
+    ],
+  },
+  {
+    key: "sop" as const,
+    prompt: "Is there a written way you do that task today?",
+    options: [
+      { id: "written", label: "Yes — notes, a doc, or a checklist" },
+      { id: "head", label: "It’s in my head" },
+      { id: "none", label: "There is no way. I just survive it." },
+    ],
+  },
+];
+
+export function scoreClient(a: ClientAnswer): ClientResult {
+  if (a.drain === "venture") {
+    return {
+      id: "venture",
+      title: "Stand up the first version",
+      subtitle: "The leak is a new thing that doesn’t exist yet — not an inbox problem.",
+      firstMove:
+        "Pick one offer. I take the messy research and setup so a first version can actually run.",
+      brief: [
+        "Name the offer in one sentence.",
+        "List the three tools it needs to live in.",
+        "Define the first public page or listing.",
+        "What happens after someone says yes?",
+      ],
+      trial: "New-venture setup on a small paid block — we get a first version standing.",
+    };
+  }
+  if (a.drain === "followup" || (a.drain === "unclear" && a.feeling === "blank")) {
+    return {
+      id: "funnel",
+      title: "Fix the follow-up before you hire hours",
+      subtitle: "Leads are raising a hand and then sitting there. Hours in an inbox won’t fix a missing sequence.",
+      firstMove:
+        "We map the path: page → form → pipeline → 3–5 follow-up emails. Then a person can work it.",
+      brief: [
+        "Where does a new lead land today?",
+        "Who follows up, and in how many hours?",
+        "What three emails should already exist?",
+        "What tag or pipeline stage means ‘talking’?",
+      ],
+      trial: "A GoHighLevel starter build or a 10-hour trial once the path is written.",
+    };
+  }
+  if (a.sop !== "written" || a.feeling !== "relieved") {
+    return {
+      id: "system",
+      title: "Write the handoff, then run the hours",
+      subtitle: "You can feel the drain, but a VA would still need you in the chair. We write the card first.",
+      firstMove:
+        "One task. Four lines. That’s the brief. The trial is those 10 hours against that card.",
+      brief: [
+        "The task, in one sentence.",
+        "Where it lives (inbox, calendar, CRM).",
+        "What ‘done’ looks like.",
+        "When to ping you vs just send it.",
+      ],
+      trial: "$249 for 10 hours — after the card exists so you’re not training in real time.",
+    };
+  }
+  return {
+    id: "handoff",
+    title: "You’re ready to hand off a lane",
+    subtitle: "You can name the work. A short trial will tell you if the person is steady.",
+    firstMove: "Inbox, calendar, or follow-ups — one lane for 10 hours. Then keep going only if it helped.",
+    brief: [
+      "The lane (inbox / calendar / follow-up).",
+      "Tools and access on day one.",
+      "Daily or 3× week check-in.",
+      "What you still want to approve.",
+    ],
+    trial: "Starter trial: 10 hours for $249. Book the 15-minute chat to pick the lane.",
+  };
+}

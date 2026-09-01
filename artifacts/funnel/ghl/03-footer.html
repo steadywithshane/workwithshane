@@ -1,0 +1,40 @@
+<!-- PASTE IN GHL: Settings → Tracking Codes → Footer -->
+<script>
+(function () {
+  const cursor = document.getElementById("cursor");
+  if (cursor) {
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    });
+    document.querySelectorAll("#sws-funnel a, #sws-funnel button, #sws-funnel summary, #sws-funnel .chip").forEach((el) => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("hot"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("hot"));
+    });
+  }
+
+  const wrap = document.getElementById("portraitWrap");
+  if (wrap) {
+    const img = wrap.querySelector(".portrait");
+    wrap.addEventListener("mousemove", (e) => {
+      const r = wrap.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      if (img) img.style.transform = "rotateY(" + (x * 8) + "deg) rotateX(" + (-y * 8) + "deg)";
+    });
+    wrap.addEventListener("mouseleave", () => { if (img) img.style.transform = ""; });
+  }
+
+  const out = document.getElementById("pickerOut");
+  document.querySelectorAll("#sws-funnel .chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      document.querySelectorAll("#sws-funnel .chip").forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+      if (out) {
+        out.textContent = chip.dataset.line;
+        out.classList.add("show");
+      }
+    });
+  });
+})();
+</script>
